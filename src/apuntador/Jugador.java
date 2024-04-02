@@ -147,10 +147,7 @@ public class Jugador {
     }
     
     public String mensajePuntaje() {
-<<<<<<< HEAD
         //Aqui solo retorno el puntaje en String
-=======
->>>>>>> d07ff0cdb779103e5ea8bc43515b8bec0dfe1db8
         int resultadoInt = getPuntaje();
         String resultadoString = "" + resultadoInt; 
         
