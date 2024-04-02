@@ -136,8 +136,8 @@ public class Jugador {
     }
     
     public String mensajePuntaje() {
-        int puntaje = getPuntaje();
-        String resultadoString = "" + puntaje; 
+        int resultadoInt = getPuntaje();
+        String resultadoString = "" + resultadoInt; 
         
         return resultadoString;
     }   
