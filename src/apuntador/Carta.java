@@ -48,4 +48,10 @@ public class Carta {
         }
         return NombreCarta.values()[residuo - 1];
     }
+
+    void add(Carta c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+
 }

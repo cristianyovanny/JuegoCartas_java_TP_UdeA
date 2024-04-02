@@ -27,6 +27,7 @@ public class FrmJuego extends javax.swing.JFrame {
         tpJugadores = new javax.swing.JTabbedPane();
         pnlJugador1 = new javax.swing.JPanel();
         pnlJugador2 = new javax.swing.JPanel();
+        btnPuntaje = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Apuntador");
@@ -75,6 +76,13 @@ public class FrmJuego extends javax.swing.JFrame {
 
         tpJugadores.addTab("Raúl Vidal", pnlJugador2);
 
+        btnPuntaje.setText("Obtener puntaje");
+        btnPuntaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPuntajeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,7 +92,9 @@ public class FrmJuego extends javax.swing.JFrame {
                 .addComponent(btnRepartir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerificar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPuntaje)
+                .addGap(31, 31, 31))
             .addComponent(tpJugadores)
         );
         layout.setVerticalGroup(
@@ -93,7 +103,9 @@ public class FrmJuego extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(btnVerificar))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnVerificar)
+                            .addComponent(btnPuntaje)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnRepartir)))
@@ -121,14 +133,29 @@ public class FrmJuego extends javax.swing.JFrame {
         String mensaje = "";
         switch(pestaña){
             case 0:
-                mensaje = jugador1.getGrupos();
+                mensaje = jugador1.getMensajeCartas() + "\n";
                 break;
             case 1:
-                mensaje = jugador2.getGrupos();
+                mensaje = jugador2.getMensajeCartas() + "\n";
                 break;
         }
         JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnVerificarActionPerformed
+
+    private void btnPuntajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntajeActionPerformed
+        // TODO add your handling code here:
+        int pestaña = tpJugadores.getSelectedIndex();
+        String mensaje = "";
+        switch(pestaña){
+            case 0:
+                mensaje = jugador1.mensajePuntaje();
+                break;
+            case 1:
+                mensaje = jugador2.mensajePuntaje();
+                break;
+        }
+        JOptionPane.showMessageDialog(null, mensaje);
+    }//GEN-LAST:event_btnPuntajeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +193,7 @@ public class FrmJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPuntaje;
     private javax.swing.JButton btnRepartir;
     private javax.swing.JButton btnVerificar;
     private javax.swing.JPanel pnlJugador1;
